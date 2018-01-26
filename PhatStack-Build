@@ -1,0 +1,43 @@
+# Detailed information is available on the Pimoroni github repo for all the installation scripts used below - https://github.com/pimoroni
+# All I did here was bolt together all the amazing work already done by the team at Pimoroni, so all credit goes to them
+# If some of you are nervous about running some of the bash based installation scripts, Pimoroni provide full details on github
+# If you want to see the script without executing, remove the | bash section at the end i.e. "curl -sS https://get.pimoroni.com/speakerphat"
+# Check Disk Space
+df -h
+
+# Check latest versions are up to date
+sudo apt-get update && sudo apt-get upgrade
+
+# Install Speaker Phat and Pivumeter
+curl -sS https://get.pimoroni.com/speakerphat | bash
+# Run tests and confirm all drivers installed
+/home/pi/Pimoroni/speakerphat/test/test.sh
+# If you get any Pivumeter Errors try the following - worked for me (again all details on Pimoroni's github repo)
+# sudo apt-get install python-sn3218 python3-sn3218
+# /home/pi/Pimoroing/pivumeter/setup.sh speaker-phat
+# sudo reboot
+# test the speaker-phat again
+/home/pi/Pimoroni/speakerphat/test/test.sh
+
+# Install the Envirophat and test
+sudo curl https://get.pimoroni.com/envirophat | bash
+# test the enviro
+sudo python /home/pi/Pimoroni/envirophat/all.py
+
+# Install the Four Letter Phat and test
+sudo curl https://get.pimoroni.com/fourletterphat | bash
+# test 4LP
+sudo python /home/pi/Pimoroni/fourletterphat/examples/clock.py
+
+# install scroll hat hd
+curl https://get.pimoroni.com/scrollphathd | bash
+# test the scroll HD - FYI I chose clock as the test in case I wanted to use Scroll as Time output
+sudo python /home/pi/Pimoroni/scrollphathd/examples/clock.py
+# Please note I got a flask error at this point so had to run - sudo pip install flask - which resolved the issue
+
+# then I installed Blinkt to cover the gap at the bottom of the board until my female header arrived for my PiZero, which I'll fit and update
+curl https://get.pimoroni.com/blinkt | bash
+# I tested using the larson
+sudo python /home/pi/Pimoroni/blinkt/examples/larson.py
+
+# Once all that's done, you're ready to try the PhatStack Code
