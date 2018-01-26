@@ -1,0 +1,19 @@
+#/****************************
+#* All of this is based on the scripts and code supplied by the amazing team at Pimoroni - https://github.com/pimoroni
+# PhatStack Odds and Sods Initial Install      
+# Check Disk Space & Update
+df -h
+# Check packages and distribution are the latest and are up to date
+sudo apt-get update && sudo apt-get upgrade
+# Install Speaker Phat and PiVumeter, this script does most of the work for you, but if you don't like not knowing what's going on behind the scenes the guys at Pimoroni supply an alterative - https://github.com/pimoroni
+curl -sS https://get.pimoroni.com/speakerphat | bash
+# Run tests and confirm all drivers installed, I got a PiVumeter Error which was fixed by installing the following
+sudo apt-get install python-sn3218 python3-sn3218
+/Home/pi/Pimoroni/pivumeter/setup.sh speaker-phat
+sudo reboot
+# test the speaker-phat via /Home/pi/Pimoroni/speaker-phat/tests/test.sh
+# Then install enviro
+sudo curl https://get.pimoroni.com/envirophat | bash
+# test the enviro using  /Home/pi/Pimoroni/envirophat/examples/all.py
+# Then install 4LP
+sudo curl https://get.pimoroni.com/fourletterphat | bash
