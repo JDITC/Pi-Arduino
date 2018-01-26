@@ -2,7 +2,7 @@
 # All I did here was bolt together all the amazing work already done by the team at Pimoroni, so all credit goes to them
 # If some of you are nervous about running some of the bash based installation scripts, Pimoroni provide full details on github
 # If you want to see the script without executing, remove the | bash section at the end i.e. "curl -sS https://get.pimoroni.com/speakerphat"
-# Check Disk Space
+# Check Disk Space - Belts and Braces stuff I usually do!
 df -h
 
 # Check latest versions are up to date
